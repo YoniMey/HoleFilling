@@ -17,11 +17,12 @@ Run the HoleFillingApp by passing the following args: (for some reasone I cuoden
     args[0] - the original image path. <path>\<imageName>.<format>
     args[1] - the image mask path. <path>\<imageName>.<format>
     args[2] - the fixed image path. <path>\<fixedImageName>.<format>
-    args[3] - z. double, try z = 2.
-    args[4] - epsilon. double, try epsilon = 0.0000001.
+    args[3] - z
+    args[4] - epsilon
     args[5] - boundary type - 8 or 4.
     args[6] - "original" for the original calculation. "other" for my calculation.
 ```
+* In case that the library install dosen't work I add a combine project with both the app and the library classes.
 ## assumption
   * mask and originalImage need to be at the same size.<br />
   * mask need to be a white image with black "hole" where you want the hole in the originalImage. 
