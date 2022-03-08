@@ -12,7 +12,7 @@ First an installation of HoleFillingLib to Maven local repository need to be don
 ```
 mvn install:install-file -Dfile=<path-to-file> -DpomFile=<path-to-pom_file>
 ```
-Run the HoleFillingApp by passing the following args:
+Run the HoleFillingApp by passing the following args: (for some reasone I cuodent run the maven exec:java command by the time I needed to send it. Instead i ran it from Intellij).
 ```
     args[0] - the original image path. <path>\<imageName>.<format>
     args[1] - the image mask path. <path>\<imageName>.<format>
