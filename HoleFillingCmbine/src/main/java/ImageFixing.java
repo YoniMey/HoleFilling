@@ -47,7 +47,6 @@ public class ImageFixing {
 
     private static double weightFunction(Pair<Integer,Integer> u, Pair<Integer,Integer> v, double z, double a){
         double d = Math.sqrt(Math.pow((u.getValue0() - v.getValue0()), 2) + Math.pow((u.getValue1() - v.getValue1()), 2));
-        System.out.println("d = " + d);
         return 1 /( Math.pow((Math.abs(d)) , z) + a);
     }
 
@@ -74,7 +73,6 @@ public class ImageFixing {
             if(v.getValue0() >= 0 & v.getValue0() < img[0].length & v.getValue1() >= 0
                     & v.getValue1() < img.length && img[v.getValue0()][v.getValue1()] != -1) {
                 weight = weightFunction(u, v, z, a);
-                System.out.println(weight);
                 numerator += weight * img[v.getValue0()][v.getValue1()];
                 denominator += weight;
             }
@@ -100,37 +98,6 @@ public class ImageFixing {
         }
         return  B;
     }
-    public static Set<int[]> findB(ImageFixing.BoundaryType type, float[][] img, int[] minMax){
-        System.out.println("find B!");
-        Set<int[]> B = new HashSet<>();
-        //{ minX, maxX, minY, maxY }
-        for(int y = minMax[2]; y <= minMax[3]; y++){
-            for(int x = minMax[0]; x<= minMax[1]; x++){
-                if(img[x][y] == -1){
-                    if(img[x-1][y] != -1)
-                        B.add(new int[]{x-1, y});
-                    if(img[x+1][y] != -1)
-                        B.add(new int[]{x+1, y});
-                    if(img[x][y-1] != -1)
-                        B.add(new int[]{x, y-1});
-                    if(img[x][y+1] != -1)
-                        B.add(new int[]{x, y+1});
-                    if(img[x-1][y-1] != -1)
-                        B.add(new int[]{x-1, y-1});
-                    if(img[x+1][y+1] != -1)
-                        B.add(new int[]{x+1, y+1});
-                    if(img[x-1][y+1] != -1)
-                        B.add(new int[]{x-1, y+1});
-                    if(img[x+1][y-1] != -1)
-                        B.add(new int[]{x+1, y-1}) ;
-                }
-            }
-        }
-        for (int[] b : B) {
-            System.out.println(b[0] + " " + b[1]);
-        }
-        return B;
-    }
 
     public static void fixHole(float[][] img, ImageFixing.BoundaryType type, double z, double a){
 
@@ -142,17 +109,7 @@ public class ImageFixing {
         int height = maxY - minY + 1;
         int width = maxX - minX + 1;
         int minAxisByTwo = (int)Math.ceil(Math.min(height, width)/2.0);
-//        for(int y = minY; y <= maxY; y++){
-//            for(int x = minX; x <= maxX; x++){
-//                if(img[x][y] == -1){
-//                    float fixedColor = findColor(new Pair<>(x,y), img, type, z, a);// debuding
-//                    img[x][y] = fixedColor;
-//                }
-//            }
-//        }
 
-
-//
         for(int i = 0; i < minAxisByTwo; i++){
             for(int j = i+minY; j < maxY - i + 1; j++){
                 if(img[minX+i][j] == -1)
@@ -166,12 +123,6 @@ public class ImageFixing {
                 if(img[l][minY + (height-i-1)] == -1)
                     img[l][minY + (height-i-1)] = findColor(new Pair<>(l,minY + (height-i-1)), img, type, z, a);
             }
-//            if(width % 2 != 0 && height % 2 != 0){
-//                int maxAxis = Math.max(height, width);
-//                for(int k = minAxisByTwo; k < maxAxis - minAxisByTwo; k++){
-//                    if( img[k][minAxisByTwo] == -1)
-//                        img[k][minAxisByTwo] = findColor(new Point(k, minAxisByTwo), img, type, z, a);
-//                }
             }
         }
     public static void fixHole2(float[][] img, ImageFixing.BoundaryType type, double z, double a) {
@@ -181,7 +132,6 @@ public class ImageFixing {
         int minY = hole.getBoundaries()[2];
         int maxY = hole.getBoundaries()[3];
         List<Pair<Integer,Integer>> B = hole.getB();
-        System.out.println(B.size());
         for (int y = minY; y <= maxY; y++) {
             for (int x = minX; x <= maxX; x++) {
                 if (img[x][y] == -1) {
