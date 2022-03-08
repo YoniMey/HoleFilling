@@ -6,7 +6,7 @@ So I calculated dynamicly the color of each pixel from the outside of the hole t
 I think that the resulets were interesting so I left an option to use my algorithem (by pass "2" in args[6]).<br />
 
 
-## Instruction
+## Instructions
 
 First an installation of HoleFillingLib to Maven local repository needs to be done by the following line: 
 ```
@@ -27,7 +27,7 @@ Run the HoleFillingApp by passing the following args:
     args[6] - 1 for the original calculation, 2 for my calculation and 3 for the bonus calculation.
 ```
 * In case that the library installation dose not work I added a combined project with both the app and the library classes.
-## assumption
-  * mask and originalImage need to be at the same size.<br />
-  * mask needs to be a white image with a black "hole" where you want the hole to be in the originalImage. 
+## assumptions
+  * Mask and originalImage need to be at the same size.<br />
+  * Mask needs to be a white image with a black "hole" where you want the hole to be in the originalImage. 
   
