@@ -12,6 +12,9 @@ First an installation of HoleFillingLib to Maven local repository need to be don
 ```
 mvn install:install-file -Dfile=<path-to-file> -DpomFile=<path-to-pom_file>
 ```
+path-to-file : ```<path of the project>\HoleFillingLib\out\artifacts\HoleFillingLib_jar\HoleFillingLib.jar```<br />
+path-to-pom_file : ```<path of the project>\HoleFillingLib\pom.xml```
+    
 Run the HoleFillingApp by passing the following args: (for some reasone I cuodent run the maven exec:java command by the time I needed to send it. Instead i ran it from Intellij).
 ```
     args[0] - the original image path. <path>\<imageName>.<format>
@@ -20,7 +23,7 @@ Run the HoleFillingApp by passing the following args: (for some reasone I cuoden
     args[3] - z
     args[4] - epsilon
     args[5] - boundary type - 8 or 4.
-    args[6] - "original" for the original calculation. "other" for my calculation.
+    args[6] - 1 for the original calculation, 2 for my calculation and 3 for the bonus calculation.
 ```
 * In case that the library install dosen't work I add a combine project with both the app and the library classes.
 ## assumption
