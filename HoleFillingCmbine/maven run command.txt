@@ -1,0 +1,3 @@
+mvn clean
+mvn complie
+mvn exec:java -Dexec.mainClass=src.main.java.MainClass -Dexec.args="C:\IntelliJ\projects\HoleFilling\Lenna.png C:\IntelliJ\projects\HoleFilling\Mask.png C:\IntelliJ\projects\HoleFilling\FixedImage.png 2 0.000001 8 original"
