@@ -141,7 +141,31 @@ public class ImageFixing {
             }
         }
     }
+    public static void fixHole3(float[][] img, ImageFixing.BoundaryType type){
+        Hole hole = findHole2(img,type); //{ minX, maxX, minY, maxY }
+        int minX = hole.getBoundaries()[0];
+        int maxX = hole.getBoundaries()[1];
+        int minY = hole.getBoundaries()[2];
+        int maxY = hole.getBoundaries()[3];
+        List<Pair<Integer,Integer>> B = hole.getB();
+        float averageColor = getAverageColor(B, img);
+        for (int y = minY; y <= maxY; y++) {
+            for (int x = minX; x <= maxX; x++) {
+                if (img[x][y] == -1) {
+                    img[x][y] = averageColor;
+                }
+            }
+        }
     }
+    private static float getAverageColor(List<Pair<Integer,Integer>> B, float[][] img){
+        float averageColor = 0;
+        for(Pair<Integer,Integer> pixel: B){
+            averageColor += img[pixel.getValue0()][pixel.getValue1()];
+        }
+        averageColor = averageColor/B.size();
+        return averageColor;
+    }
+}
 
 
 
