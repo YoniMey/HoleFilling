@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="HoleFillingLib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../HoleFillingLib/out/artifacts/HoleFillingLib_jar/HoleFillingLib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
