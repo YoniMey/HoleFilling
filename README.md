@@ -1,11 +1,5 @@
 # HoleFilling
 
-At first I did't understand the task instructions correctly, so I implament the library in a different way.<br />
-I thought that the B group needs to be related to each pixel (the 4 or 8 "neighbor" of the pixel).<br />
-So I calculated dynamicly the color of each pixel from the outside of the hole to the inside.<br />
-I think that the resulets were interesting so I left an option to use my algorithem (by pass "2" in args[6]).<br />
-
-
 ## Instructions
 
 First an installation of HoleFillingLib to Maven local repository needs to be done by the following line: 
