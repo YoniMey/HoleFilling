@@ -5,6 +5,7 @@ import java.util.*;
 
 public class ImageFixing {
     public enum BoundaryType {FOUR , EIGHT};
+    public enum Mode {FIRST , SECOND};
     private static int[] findHole(float[][] img){
         int[] minMax = new int[4]; //{ minX, maxX, minY, maxY }
         minMax[0] = img[0].length;
@@ -125,22 +126,7 @@ public class ImageFixing {
             }
             }
         }
-    public static void fixHole2(float[][] img, ImageFixing.BoundaryType type, double z, double a) {
-        Hole hole = findHole2(img,type); //{ minX, maxX, minY, maxY }
-        int minX = hole.getBoundaries()[0];
-        int maxX = hole.getBoundaries()[1];
-        int minY = hole.getBoundaries()[2];
-        int maxY = hole.getBoundaries()[3];
-        List<Pair<Integer,Integer>> B = hole.getB();
-        for (int y = minY; y <= maxY; y++) {
-            for (int x = minX; x <= maxX; x++) {
-                if (img[x][y] == -1) {
-                    img[x][y] = findColor2(new Pair<>(x, y), img, type, z, a, B);
-                }
-            }
-        }
-    }
-    public static void fixHole3(float[][] img, ImageFixing.BoundaryType type){
+    public static void fixHole2(float[][] img, ImageFixing.BoundaryType type){
         Hole hole = findHole2(img,type); //{ minX, maxX, minY, maxY }
         int minX = hole.getBoundaries()[0];
         int maxX = hole.getBoundaries()[1];
