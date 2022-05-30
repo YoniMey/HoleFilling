@@ -1,26 +1,11 @@
 # HoleFilling
+### My goal was to build a small image processing code that fills holes in images
 
-## Instructions
+![image](https://user-images.githubusercontent.com/91546320/170985324-b2fe8a39-27b0-4633-9980-94ac7c9a9467.png)
+![image](https://user-images.githubusercontent.com/91546320/170985359-6d160726-9d61-4375-8da9-dbbbfe921b17.png)
 
-First an installation of HoleFillingLib to Maven local repository needs to be done by the following line: 
-```
-mvn install:install-file -Dfile=<path-to-file> -DpomFile=<path-to-pom_file>
-```
-path-to-file : ```<path of the project>\HoleFillingLib\out\artifacts\HoleFillingLib_jar\HoleFillingLib.jar```<br />
-path-to-pom_file : ```<path of the project>\HoleFillingLib\pom.xml```
+### The default weighting function for the algorithm is: ![image](https://user-images.githubusercontent.com/91546320/170986093-f54a8d9c-731f-4889-b337-ea86dfbe471e.png)
 
-(for some reasone I could not run the maven exec:java command by the time I needed to submit the task. Instead I ran it from Intellij).<br />
-Run the HoleFillingApp by passing the following args: 
-```
-    args[0] - the original image path. <path>\<imageName>.<format>
-    args[1] - the image mask path. <path>\<imageName>.<format>
-    args[2] - the fixed image path. <path>\<fixedImageName>.<format>
-    args[3] - z
-    args[4] - epsilon
-    args[5] - boundary type - 8 or 4.
-    args[6] - 1 for the original calculation, 2 for my calculation and 3 for the bonus calculation.
-```
-* In case that the library installation dose not work I added a combined project with both the app and the library classes.
 ## assumptions
   * Mask and originalImage need to be at the same size.<br />
   * Mask needs to be a white image with a black "hole" where you want the hole to be in the originalImage. 
